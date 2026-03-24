@@ -17,38 +17,38 @@ Opret filen `src/calculator.js`:
 
 ```javascript
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
 function subtract(a, b) {
-    return a - b;
+  return a - b;
 }
 
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
 function divide(a, b) {
-    if (b === 0) throw new Error("Cannot divide by zero");
-    return a / b;
+  if (b === 0) throw new Error("Cannot divide by zero");
+  return a / b;
 }
 
 function calculateWithDiscount(value1, value2, operationType, hasDiscount) {
-    let result;
+  let result;
 
-    if (operationType === "add") {
-        result = add(value1, value2);
-    } else if (operationType === "multiply") {
-        result = multiply(value1, value2);
-    } else {
-        throw new Error("Unknown operation type");
-    }
+  if (operationType === "add") {
+    result = add(value1, value2);
+  } else if (operationType === "multiply") {
+    result = multiply(value1, value2);
+  } else {
+    throw new Error("Unknown operation type");
+  }
 
-    if (hasDiscount) {
-        result = result > 100 ? result * 0.9 : result * 0.95;
-    }
+  if (hasDiscount) {
+    result = result > 100 ? result * 0.9 : result * 0.95;
+  }
 
-    return result;
+  return result;
 }
 
 module.exports = { add, subtract, multiply, divide, calculateWithDiscount };
@@ -57,6 +57,7 @@ module.exports = { add, subtract, multiply, divide, calculateWithDiscount };
 ---
 
 ## 3. Tilføj JSDoc-kommentarer
+
 Det første eksempel er tilføjet.
 
 Kig derefterr på [https://jsdoc.app](https://jsdoc.app) og se de forskellige tags man kan bruge. Tilføj selv relevante tags til resten af koden.
@@ -69,42 +70,38 @@ Kig derefterr på [https://jsdoc.app](https://jsdoc.app) og se de forskellige ta
  * @returns {number} The sum of a and b
  */
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
-
 
 function subtract(a, b) {
-    return a - b;
+  return a - b;
 }
-
 
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
-
 
 function divide(a, b) {
-    if (b === 0) throw new Error("Cannot divide by zero");
-    return a / b;
+  if (b === 0) throw new Error("Cannot divide by zero");
+  return a / b;
 }
 
-
 function calculateWithDiscount(value1, value2, operationType, hasDiscount) {
-    let result;
+  let result;
 
-    if (operationType === "add") {
-        result = add(value1, value2);
-    } else if (operationType === "multiply") {
-        result = multiply(value1, value2);
-    } else {
-        throw new Error("Unknown operation type");
-    }
+  if (operationType === "add") {
+    result = add(value1, value2);
+  } else if (operationType === "multiply") {
+    result = multiply(value1, value2);
+  } else {
+    throw new Error("Unknown operation type");
+  }
 
-    if (hasDiscount) {
-        result = result > 100 ? result * 0.9 : result * 0.95;
-    }
+  if (hasDiscount) {
+    result = result > 100 ? result * 0.9 : result * 0.95;
+  }
 
-    return result;
+  return result;
 }
 
 module.exports = { add, subtract, multiply, divide, calculateWithDiscount };
@@ -118,14 +115,14 @@ Opret `jsdoc.json` i roden:
 
 ```json
 {
-    "source": {
-        "include": ["src"],
-        "includePattern": ".js$"
-    },
-    "opts": {
-        "destination": "./docs",
-        "recurse": true
-    }
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
 }
 ```
 
@@ -173,12 +170,12 @@ Opret `tutorials/tutorials.json` til at styre titler og rækkefølge:
 
 ```json
 {
-    "architecture": {
-        "title": "Architecture"
-    },
-    "database": {
-        "title": "Database"
-    }
+  "architecture": {
+    "title": "Architecture"
+  },
+  "database": {
+    "title": "Database"
+  }
 }
 ```
 
@@ -186,15 +183,15 @@ Opdater `jsdoc.json` til at inkludere tutorials:
 
 ```json
 {
-    "source": {
-        "include": ["src"],
-        "includePattern": ".js$"
-    },
-    "opts": {
-        "destination": "./docs",
-        "recurse": true,
-        "tutorials": "./tutorials"
-    }
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "tutorials": "./tutorials"
+  }
 }
 ```
 
@@ -220,16 +217,16 @@ Opdater `jsdoc.json`:
 
 ```json
 {
-    "source": {
-        "include": ["src"],
-        "includePattern": ".js$"
-    },
-    "opts": {
-        "destination": "./docs",
-        "recurse": true,
-        "tutorials": "./tutorials",
-        "template": "./node_modules/docdash"
-    }
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "tutorials": "./tutorials",
+    "template": "./node_modules/docdash"
+  }
 }
 ```
 
@@ -242,29 +239,30 @@ Da docdash er under Apache 2.0 licens må du frit kopiere og modificere det. Kop
 ```bash
 cp -r node_modules/docdash ./themes/docdash
 ```
+
 (Eller copy/paste mappen)
 
 Opdater `jsdoc.json` til at pege på din lokale kopi:
 
-Brug min `publish.js` og `details.tmpl` og erstat jsdoc´s filer med mine. 
+Brug min `publish.js` og `details.tmpl` og erstat jsdoc´s filer med mine.
 
 Nu kan du styre navnet via `jsdoc.json`:
 
 ```json
 {
-    "source": {
-        "include": ["src"],
-        "includePattern": ".js$"
-    },
-    "opts": {
-        "destination": "./docs",
-        "recurse": true,
-        "tutorials": "./tutorials",
-        "template": "./themes/docdash"
-    },
-    "docdash": {
-        "tutorialsLabel": "Documents"
-    }
+  "source": {
+    "include": ["src"],
+    "includePattern": ".js$"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "tutorials": "./tutorials",
+    "template": "./themes/docdash"
+  },
+  "docdash": {
+    "tutorialsLabel": "Documents"
+  }
 }
 ```
 
@@ -310,6 +308,7 @@ Aktiver GitHub Pages:
 **Settings** → **Pages** → **Source** → vælg **gh-pages** branch og **/ (root)**
 
 Din dokumentation publiceres automatisk på:
+
 ```
 https://<dit-brugernavn>.github.io/<dit-repo-navn>/
 ```

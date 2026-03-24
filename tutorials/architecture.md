@@ -1,6 +1,6 @@
 # Architecture
 
-## Help Me
+## Project structure
 
 ```
 jsdoc-demo/

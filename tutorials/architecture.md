@@ -1,6 +1,4 @@
-# Architecture
-
-## Project structure
+# Project structure
 
 ```
 jsdoc-demo/

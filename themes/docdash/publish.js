@@ -493,7 +493,8 @@ function buildNav(members) {
         Events: buildMemberNav(members.events, 'Events', seen, linkto),
         Namespaces: buildMemberNav(members.namespaces, 'Namespaces', seen, linkto),
         Mixins: buildMemberNav(members.mixins, 'Mixins', seen, linkto),
-        Tutorials: buildMemberNav(members.tutorials, 'Tutorials', seenTutorials, linktoTutorial),
+        // TODO
+        Tutorials: buildMemberNav(members.tutorials, env.conf.docdash.tutorialsLabel || 'Tutorials', seenTutorials, linktoTutorial),
         Interfaces: buildMemberNav(members.interfaces, 'Interfaces', seen, linkto),
         Global: buildMemberNavGlobal()
     };
@@ -822,7 +823,8 @@ exports.publish = function(taffyData, opts, tutorials) {
     // tutorials can have only one parent so there is no risk for loops
     function saveChildren(node) {
         node.children.forEach(function(child) {
-            generateTutorial('Tutorial: ' + child.title, child, helper.tutorialToUrl(child.name));
+            // TODO
+            generateTutorial(env.conf.docdash.tutorialsLabel + ': ' || 'Tutorial: ' + child.title, child, helper.tutorialToUrl(child.name));
             saveChildren(child);
         });
     }
